@@ -66,13 +66,13 @@ python A.py
 ```
 
 **2. Ejecución especificando el número de periodos**
-Se puede usar el argumento -n o --periods seguido del número de ciclos que se desee simular. Por ejemplo, para ejecutar 10 periodos:
+Se puede usar el argumento -n o --periods seguido del número de ciclos que se desee simular. Por ejemplo, para ejecutar 3 periodos:
 ```bash
-python A.py -n 10
+python A.py -n 3
 ```
 O usando el nombre completo del argumento:
 ```bash
-python A.py --periods 10
+python A.py --periods 3
 ```
 
 **3. Ver ayuda**
