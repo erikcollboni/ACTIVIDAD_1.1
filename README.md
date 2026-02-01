@@ -55,8 +55,28 @@ Se ha seleccionado el protocolo **UDP (`SOCK_DGRAM`)** en lugar de TCP por las s
 * Python 3.x
 * Librerías estándar: `socket`, `threading`, `time`, `random`, `datetime`.
 
-### Instrucciones
-Ejecuta el script principal desde la terminal:
+### Instrucciones de Ejecución
 
+El script se puede ejecutar de varias formas desde la terminal, permitiendo configurar la duración de la simulación dinámicamente:
+
+**1. Ejecución estándar (Por defecto)**
+Si no se especifican argumentos, la simulación correrá automáticamente durante **10 periodos**.
 ```bash
 python distributed_agents.py
+```
+
+**2. Ejecución especificando el número de periodos**
+Se puede usar el argumento -n o --periods seguido del número de ciclos que se desee simular. Por ejemplo, para ejecutar 10 periodos:
+```bash
+python distributed_agents.py -n 10
+```
+O usando el nombre completo del argumento:
+```bash
+python distributed_agents.py --periods 10
+```
+
+**3. Ver ayuda**
+Si se desea, se pueden consultar los argumentos disponibles desde la línea de comandos:
+```bash
+python distributed_agents.py -h
+```

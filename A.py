@@ -3,11 +3,11 @@ import threading
 import time
 import random
 import datetime
+import argparse
 
 # Configuración
 RESPONDER_PORTS = [5001, 5002, 5003]
 REQUESTER_PORT = 5000
-N_PERIODS = 3
 BUFFER_SIZE = 32
 
 # Códigos ANSI
@@ -154,10 +154,22 @@ def requester_agent(target_ports, total_periods):
     print(f"{'='*30}")
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Simulación de Agentes Distribuidos UDP')
+    
+    parser.add_argument('-n', '--periods', type=int, default=10, 
+                        help='Número de periodos a simular (Por defecto: 10)')
+    
+    args = parser.parse_args()
+    
+    # Validamos que sea un número positivo
+    if args.periods < 1:
+        print(f"{RED}Error: El número de periodos debe ser al menos 1.{RESET}")
+        exit()
+    
     # Iniciar hilos de agentes respondedores
     for i, port in enumerate(RESPONDER_PORTS):
         t = threading.Thread(target=responder_agent, args=(i+1, port), daemon=True)
         t.start()
 
     # Iniciar hilo agente solicitante
-    requester_agent(RESPONDER_PORTS, N_PERIODS)
+    requester_agent(RESPONDER_PORTS, args.periods)
