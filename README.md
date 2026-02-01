@@ -44,7 +44,7 @@ Se ha seleccionado el protocolo **UDP (`SOCK_DGRAM`)** en lugar de TCP por las s
     El problema plantea un escenario asíncrono donde el solicitante pide ayuda sin saber si los receptores están disponibles. UDP permite enviar datagramas sin establecer una conexión previa (*handshake*), lo cual es ideal para modelos de difusión o comunicación de grupo ligera.
 
 2.  **Tolerancia a Fallos y Silencios:**
-    El requisito de que un agente pueda "no responder el 10% de las veces" se alinea naturalmente con la falta de fiabilidad de UDP. Si un paquete se pierde, el protocolo no intenta retransmitirlo (como haría TCP), permitiendo que la lógica del programa maneje el silencio simplemente agotando el tiempo de espera.
+    El requisito de que un agente pueda "no responder el 10% de las veces" se alinea naturalmente con la falta de fiabilidad de UDP. Si un paquete se pierde, el protocolo no intenta retransmitirlo (como haría TCP), permitiendo que la lógica del programa maneje el silencio simplemente agotando el tiempo de espera (además de simulándolo de manera activa).
 
 3.  **Preservación de Límites de Mensaje:**
     UDP envía mensajes discretos (datagramas). Esto simplifica el análisis de respuestas cortas ("Ok", "No") sin necesidad de gestionar un flujo de bytes continuo (`stream`) donde múltiples mensajes podrían llegar pegados, algo común en TCP.

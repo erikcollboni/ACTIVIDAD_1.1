@@ -140,9 +140,10 @@ def requester_agent(target_ports, total_periods):
         print(f"\n{BOLD}{'-'*15} FIN PERIODO {current_period} {'-'*15}\n{RESET}")
 
         # Espera aleatoria antes del siguiente periodo
-        wait_next = random.uniform(2.0, 4.0)
-        print(f"Esperando {wait_next:.2f}s para siguiente ciclo...")
-        time.sleep(wait_next)
+        if(current_period < total_periods):
+            wait_next = random.uniform(2.0, 4.0)
+            print(f"Esperando {wait_next:.2f}s para siguiente ciclo...")
+            time.sleep(wait_next)
 
     # Métricas finales
     satisfaction_degree = (satisfied_periods / total_periods) * 100
